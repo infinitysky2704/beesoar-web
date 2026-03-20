@@ -978,17 +978,18 @@ document.querySelectorAll('.demo-tab').forEach(btn => {
 async function handleWL(e) {
   e.preventDefault();
   const email = document.getElementById('wl-email').value;
+  const form = new FormData();
+  form.append('email', email);
   try {
-    await fetch('https://formspree.io/f/xyknovqr', {
+    await fetch('https://formspree.io/f/mwvrydlg', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email })
+      body: form,
+      headers: { 'Accept': 'application/json' }
     });
   } catch(err) {}
   document.getElementById('wl-form').style.display = 'none';
   document.getElementById('wl-ok').style.display = 'block';
 }
-
 // ── Demo interactive buttons
 // "Continuar →" en pantalla Search → va a pantalla Confirm
 document.addEventListener('DOMContentLoaded', function() {
